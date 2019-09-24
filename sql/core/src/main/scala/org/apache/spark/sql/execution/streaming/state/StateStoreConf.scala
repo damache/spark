@@ -20,7 +20,7 @@ package org.apache.spark.sql.execution.streaming.state
 import org.apache.spark.sql.internal.SQLConf
 
 /** A class that contains configuration parameters for [[StateStore]]s. */
-class StateStoreConf(@transient private val sqlConf: SQLConf)
+class StateStoreConf(@transient val sqlConf: SQLConf)
   extends Serializable {
 
   def this() = this(new SQLConf)

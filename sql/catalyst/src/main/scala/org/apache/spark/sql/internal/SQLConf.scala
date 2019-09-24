@@ -948,6 +948,39 @@ object SQLConf {
       .createWithDefault(
         "org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider")
 
+  val ROCKSDB_STATE_STORE_DATA_LOCAL_DIR =
+    buildConf("spark.sql.streaming.stateStore.rocksDb.localDir")
+      .doc("The default location to store rocksdb data and metadata files")
+      .stringConf
+      .createOptional
+
+  val ROCKSDB_STATE_STORE_DATA_BLOCK_SIZE =
+    buildConf("spark.sql.streaming.stateStore.rocksDb.blockSizeInKB")
+      .doc(
+        "The maximum size (in KB) of packed data in a block of a table file. " +
+          "When reading from a table, an entire block is loaded into memory")
+      .intConf
+      .createOptional
+
+  val ROCKSDB_STATE_STORE_MEMTABLE_BUDGET =
+    buildConf("spark.sql.streaming.stateStore.rocksDb.memtableBudgetInMB")
+      .doc("The maximum size (in MB) of memory to be used to optimize level style compaction")
+      .intConf
+      .createOptional
+
+  val ROCKSDB_STATE_STORE_CACHE_SIZE =
+    buildConf("spark.sql.streaming.stateStore.rocksDb.cacheSizeInMB")
+      .doc("The maximum size (in MB) of in-memory LRU cache for RocksDB operations")
+      .intConf
+      .createOptional
+
+  val ROCKSDB_STATE_STORE_ENABLE_STATS =
+    buildConf("spark.sql.streaming.stateStore.rocksDb.enableDbStats")
+      .internal()
+      .doc("Enable statistics for rocksdb for debugging and reporting")
+      .booleanConf
+      .createOptional
+
   val STATE_STORE_MIN_DELTAS_FOR_SNAPSHOT =
     buildConf("spark.sql.streaming.stateStore.minDeltasForSnapshot")
       .internal()
