@@ -37,7 +37,7 @@ import org.apache.spark.sql.execution.streaming.CheckpointFileManager
 import org.apache.spark.sql.types.StructType
 import org.apache.spark.util.Utils
 
-/**
+/*
  * An implementation of [[StateStoreProvider]] and [[StateStore]] using RocksDB as the storage
  * engine. In RocksDB, new writes are inserted into a memtable which is flushed into local storage
  * when the memtable fills up. It improves scalability as compared to

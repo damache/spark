@@ -420,5 +420,4 @@ object RocksDbInstance {
       FileUtils.deleteDirectory(f)
     }
   }
-
 }
